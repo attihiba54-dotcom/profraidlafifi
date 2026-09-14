@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap");
+:root{
+  --bg-deep:#0E2318;
+  --green-dark:#1F6B4A;
+  --green-mid:#3FA25A;
+  --green-bright:#6FD07C;
+  --amber:#FFC15E;
+  --ink:#EAF6EC;
+  --muted:#A9C6AE;
+ --bg1:#0A1810;
+  --bg2:#0F2419;
+  --emerald:#1F6B4A;
+  --emerald-soft:#3FA25A;
+  --gold:#D8B26B;
+  --ink:#F3F0E8;
+  --muted:#9DAE9F;
+  --line:rgba(216,178,107,.18);
+}
+ 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+body {
+  background:
+    radial-gradient(circle at 15% -10%, rgba(63,162,90,.18), transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(216,178,107,.10), transparent 40%),
+    linear-gradient(180deg, var(--bg1), var(--bg2) 60%, #081209);
+  background-blend-mode: screen;
+  background-size: 100% 100%, 300% 300%;
+  animation: bgShift 18s ease-in-out infinite;
+  color: var(--ink);
+  font-family: 'Tajawal', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+ 
+.glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .4;
+  z-index: 0;
+  pointer-events: none;
+}
+.glow-a { width: 420px; height: 420px; background: var(--green-bright); top: -120px; left: -100px; }
+.glow-b { width: 360px; height: 360px; background: var(--amber); top: 180px; right: -130px; }
+.glow-c { width: 320px; height: 320px; background: var(--green-mid); bottom: -120px; left: 30%; }
+ 
+
+ 
+.topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 50px;
+}
+.teacher-name { color: var(--ink); font-weight: 700; font-size: 15px; }
+.pill-tag {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border-color: #D8B26B;
+   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.t1{
+  color: var(--gold);
+  margin-top: -120px;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+  animation: fadeUp .7s ease both;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+  color: #fffefe;
+  cursor: pointer;
+}
+.links ul a i {
+  background-color: #c9c9c9;
+  backdrop-filter: blur(10px);
+  padding: 1px;
+  border-radius: 20px;
+  color: #07692b;
+  box-shadow:
+    0 0 60px #c9c9c9,
+    o o 120px #0b6437;
+}
+.hero{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 60px 24px 20px;
+}
+.welcome{
+ font-size: 66px;
+  font-weight: 900;
+  line-height: 1.4;
+  
+  margin: 0 auto 14px;
+  background: linear-gradient(90deg, #D8B26B, #f3f5f4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fadeUp .8s ease .05s both;
+}
+.sub {
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.8;
+  animation: fadeUp .8s ease .12s both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+ 
+/* القارورة العائمة */
+.flask-stage {
+  position: relative;
+  z-index: 2;
+  height: 130px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  perspective: 900px;
+}
+.flask {
+  width: 100px;
+  height: 130px;
+  animation: float 4.5s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+.flask svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 20px 26px rgba(111,208,124,.3));
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotateY(0deg) rotateZ(-2deg); }
+  50%      { transform: translateY(-14px) rotateY(8deg) rotateZ(2deg); }
+}
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(111,208,124,.6);
+  animation: rise 3.2s ease-in infinite;
+}
+@keyframes rise {
+  0%   { transform: translateY(0) scale(1); opacity: .9; }
+  100% { transform: translateY(-80px) scale(.3); opacity: 0; }
+}
+.card-link{
+  display:block;
+  width:100%;
+  height:100%;
+  text-decoration:none;
+  color:inherit;
+}
+.accordion {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  gap: 16px;
+  transition: 0.3s;
+}
+.accordion :hover {
+  gap: 0;
+}
+.accordion li {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 120px;
+  height: 340px;
+  border-radius: 50px;
+  opacity: 0.75;
+  cursor: pointer;
+}
+.accordion li {
+  background-image: url('./assets/alex-H9t723yPjYI-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: 392px 340px;
+}
+.accordion li:nth-child(1){ background-position: 0 0; }
+.accordion li:nth-child(2){ background-position: -136px 0; }
+.accordion li:nth-child(3){ background-position: -272px 0; }
+
+
+.accordion li,
+.accordion li img,
+.accordion li .content,
+.accordion li .content .text {
+  transition: 0.3s;
+}
+.accordion h2 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 45px;
+  border-bottom: 2px solid #fff;
+  margin-bottom: nowrap;
+}
+.accordion li .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  color: #fff;
+  padding: 15px;
+  background: #02022e;
+  background: linear-gradient(
+    0deg,
+    rgb(0 0 0 /70%) 10%,
+    rgb(255 255 255 /0%) 100%
+  );
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.accordion li .content .text {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  bottom: 50px;
+  translate: -50%;
+  scale: 0.85;
+  visibility: hidden;
+  opacity: 0;
+}
+.accordion li:hover {
+  flex: 0 1 140px;
+  scale: 1.03;
+  z-index: 10;
+  opacity: 1;
+}
+.accordion li:hover .content {
+  opacity: 1;
+  visibility: visible;
+}
+.accordion li:hover .text {
+  scale: 1;
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 600px) {
+  .topbar {
+    padding: 16px 20px;
+  }
+  .teacher-name, .pill-tag {
+    font-size: 12px;
+  }
+  .welcome{
+    margin-top: 65px;
+    font-size: 40px;
+  }
+  .pill-tag {
+    padding: 6px 14px;
+  }
+  .hero {
+    padding: 30px 16px 10px;
+  }
+  .sub {
+    font-size: 14px;
+  }
+  .accordion {
+    gap: 8px;
+    height: auto;
+  }
+  .accordion li {
+    flex: 0 0 100px;
+    height: 260px;
+    border-radius: 30px;
+    background-size: 320px 260px;
+  }
+  .accordion li:nth-child(2){ background-position: -110px 0; }
+  .accordion li:nth-child(3){ background-position: -220px 0; }
+  .glow-a, .glow-b, .glow-c {
+    display: none;  
+  }
+}
